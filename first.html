@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vasanth using HTML5</title>
+</head>
+<body>
+    <h1>This is HTML5</h1>
+    <video id="childVideo" "320" height="240"  muted poster="child.jpg">
+        <source src="MP4_video_test.mp4" type="video/mp4">
+    </video>
+
+    <button id="playButton" onclick="play()">Play</button>
+    <button id="pauseButton" onclick="pause()"> Pause</button>
+
+    <script>
+        var videoRef = document.getElementById("childVideo")
+        var playButtonId = document.getElementById("playButton")
+        var pauseButtonId = document.getElementById("pauseButton")
+        function play() {
+            //console.log("its me")
+            if(videoRef.paused){
+                videoRef.play()
+                playButtonId.disabled = true
+                pauseButtonId.disabled = false
+            }
+        }
+        function pause() {
+            videoRef.pause()
+            pauseButtonId.disabled = true
+            playButtonId.disabled = false
+        }
+    </script>
+</body>
+</html>

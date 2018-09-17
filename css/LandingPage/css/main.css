@@ -1,0 +1,47 @@
+.logoContainer {
+    float: left;
+}
+
+.ulContainer {
+    float: right;
+}
+
+.msgContainer{
+    border-radius: 10%;
+    position: absolute;
+    margin-top: 20%;
+    background-color:lightblue;
+    font: larger bolder;
+}
+
+li {
+    display: inline;
+    padding-left: 20px;
+    color: black;
+    font: bold large bolder;
+}
+
+li:hover{
+    color: magenta;
+    cursor: pointer;
+    background-color: blue;
+}
+
+body {
+    background-image: url("background.jfif")
+}
+
+.hrefContainer {
+    margin-top: 3%;
+    word-spacing: 20%;
+}
+
+.button {
+    text-decoration: none;
+    background-color: lightpink;
+}
+
+.button:hover {
+    color: lightgreen;
+    zoom: 100%;
+}

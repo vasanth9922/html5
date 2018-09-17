@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Basics..!!</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <h1>JQuery Basics..!!</h1>
+
+    <p>This is para 1</p>
+    <p>This is para 2</p>
+    <p>This is para 3</p>
+    <p class="para4">This is para 4</p>
+
+    <button>Click IT.</button>
+
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+    </ol>
+
+    <script>
+        $(document).ready(function() {
+            console.log("hello DOM!!");
+            //$("p").hide()
+            //$("p").hide()
+            $("button").click(function(){
+               // $("p:odd").toggle()
+               $("ol li:first").toggle();
+            })
+        })
+    </script>
+</body>
+</html>

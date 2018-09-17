@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo in Javascript</title>
+</head>
+<body onload="loadToDo()">
+    <h3>Javascript TODO</h3>
+    <label for="todo">Todo Item</label>
+    <input type="text">
+    <button onclick="addTodo()" >Add Button</button>
+
+    <div id="todoItems"></div>
+
+    <script>
+        var newUl = document.createElement("ul");
+        var todoItemsRef = document.getElementById("todoItems");
+        var button;
+        function addTodo() {
+            console.log("vasanth");
+            var inputValue = document.getElementsByTagName("input")[0].value;
+            console.log(inputValue);
+            saveToDo(inputValue);
+            var newLi = document.createElement("li");
+            newLi.innerHTML = inputValue;
+            newLi.appendChild(button);
+            newUl.appendChild(newLi);
+            //inser element into DOM
+            todoItemsRef.appendChild(newUl);
+            document.getElementsByTagName("input")[0].value = "";
+        }
+
+        function createButton(newCounter) {
+            button = document.createElement("button");
+            button.innerHTML = "Delete";
+            button.style.cssText = "background-color:pink;";
+            button.src = "deleteicon.jfif";
+            button.id = newCounter;
+            button.setAttribute("onclick", 'handleDelete('+newCounter+')');
+        }
+
+        function handleDelete(newCounter) {
+            console.log("deleting..."+newCounter);
+            var newCounterAftrDelete = parseInt(localStorage.getItem("counter")) - 1;
+            localStorage.removeItem(newCounter);
+            localStorage.setItem("counter", newCounterAftrDelete);
+        }
+
+        function saveToDo(inputValue) {
+            if(typeof(Storage)){
+                if(inputValue != ""){
+                    var counter = localStorage.getItem("counter");
+                    console.log("vv" + counter);
+                    if(counter == null){
+                        counter = 0;
+                    }
+                    var newCounter = parseInt(counter) + 1;
+                    createButton(newCounter);
+                    localStorage.setItem("counter", newCounter);
+                    localStorage.setItem(parseInt(counter)+1, inputValue);
+                }
+            }
+        }
+
+        function loadToDo() {
+            if(typeof(Storage)){
+                var counter = localStorage.getItem("counter");
+                if(counter != null){
+                    var counter = parseInt(counter);
+                    for(i=1; i<=counter; i++){
+                        var liValue = localStorage.getItem(i);
+                        console.log(liValue);
+                        var newLi = document.createElement("li");
+                        newLi.innerHTML = liValue;
+                        createButton(i);
+                        newLi.appendChild(button);
+                        newUl.appendChild(newLi);
+                        todoItemsRef.appendChild(newUl);
+                    }
+                }                
+            }
+        }
+
+    </script>
+</body>
+</html>

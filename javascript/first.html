@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript</title>
+    <style>
+        .para1{
+            color: aqua;
+        }
+        .para2{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head1">JS Dom Navigation</h1>
+
+    <div>
+        <h2>Demo DOM</h1>
+            <p class="para1">checking</p>
+            <p class="para2">handling dom navigation</p>
+    </div>
+
+    <script>
+        var idRef = document.getElementById("head1");
+        idRef.innerHTML = "Javascript DOM navigaion.!!";
+
+        var tagRef = document.getElementsByTagName("p");
+
+        console.log(tagRef);
+
+        tagRef[0].innerHTML = "this is P's tag first element..";
+
+        var pTagSize = tagRef.length;
+        for(i=0 ; i<pTagSize; i++){
+            tagRef[i].innerHTML = "Para " + (i+1);
+        }
+
+        var classRef = document.getElementsByClassName("para1");
+        classRef[0].innerHTML = "Para 1 changed.."
+
+        var queryId = document.querySelectorAll("p.para2");
+
+    </script>
+</body>
+</html>

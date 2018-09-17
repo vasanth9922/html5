@@ -1,0 +1,17 @@
+
+        .extPara {
+            color: brown;
+        }
+
+        #extLine {
+            color: darkgoldenrod;
+        }
+
+        .layout1 {
+            border: 5px solid springgreen;
+            border-color: pink;
+            width: 200px;
+            height: 200px;
+            float: right;
+            position: relative;
+        }

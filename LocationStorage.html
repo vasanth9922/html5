@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML5 local storage</title>
+</head>
+<body onload="onDOMLoadDone()">
+    <h1>HTML local storage !!!</h1>
+    Name:
+    <input id="textBoxId" oninput="enableSave()" type="text">
+    <button id="saveButtonId" onclick="save()">Save</button>
+
+    <script>
+        var textBoxRef = document.getElementById("textBoxId")
+        var saveButtonRef = document.getElementById("saveButtonId")
+        function save() {
+            if(typeof(Storage)){
+                if(textBoxRef.value != ""){
+                    var counter = localStorage.length
+                    localStorage.setItem("fullname"+(counter+1),textBoxRef.value)
+                    textBoxRef.value = ""
+                    textBoxRef.focus()
+                    saveButtonRef.disabled = true
+                }
+            }
+        }
+        function enableSave() {
+            saveButtonId.disabled = false
+        }
+
+        function onDOMLoadDone() {
+            console.log("on load success");
+            if(typeof(Storage) != "undefined"){
+                
+            }
+        }
+    </script>
+</body>
+</html>
